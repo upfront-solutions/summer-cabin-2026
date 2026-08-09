@@ -664,9 +664,9 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
         <div class="wbody" style="padding-left:0">
 
           <div class="medaltable">
-            <div class="medal g"><div class="pts">10</div><div class="lbl">First</div></div>
-            <div class="medal s"><div class="pts">5</div><div class="lbl">Second</div></div>
-            <div class="medal b"><div class="pts">3</div><div class="lbl">Third</div></div>
+            <div class="medal g"><div class="pts">10</div><div class="lbl">1st Place</div></div>
+            <div class="medal s"><div class="pts">5</div><div class="lbl">2nd Place</div></div>
+            <div class="medal b"><div class="pts">3</div><div class="lbl">3rd Place</div></div>
           </div>
           <p class="xs faint" style="margin-top:11px">Top three in each event. Fourth and below score nothing.</p>
 
@@ -678,7 +678,7 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
 
           <div class="facts">
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-repeat"/></svg>
-              <div><b>Only your best counts</b><span>Try as many times as you like. A bad run never hurts you.</span></div></div>
+              <div><b>Only your best counts</b><span>Try and log as many as you'd like. Best score is taken.</span></div></div>
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg>
               <div><b>Witnesses are public</b><span>Their name sits next to your score on the leaderboard. That is the whole anti-cheat system.</span></div></div>
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-equal"/></svg>
@@ -772,13 +772,13 @@ const GAMES = [
     rule:"One full lap. Push off at the bar, touch the jacuzzi, come back. Fastest time wins.",
     metric:"time",  lowerBetter:true },
   { id:"pacman",   name:"Pac-Man",           img:"photos/game-pacman.jpg",
-    rule:"One credit on the cabinet. Highest score wins. No do-overs mid-game.",
+    rule:"Play until you run out of lives, and whatever you finish on is your score.",
     metric:"score", lowerBetter:false },
   { id:"foosball", name:"Foosball Ten",      img:"photos/game-foosball.jpg",
-    rule:"Score 10 goals as fast as you can, with the goalie still parked in the middle. Fastest time wins.",
+    rule:"Score 10 goals as fast as you can, with the goalie in the center of the goal.",
     metric:"time",  lowerBetter:true },
   { id:"hoops",    name:"Pool Hoops",        img:"photos/pool-hoop.jpg",
-    rule:"Make 5 baskets from the 3rd ball chair. Clock stops on the 5th. Fastest time wins.",
+    rule:"Make 5 baskets from the 3rd bar chair from the hoop. Fastest time wins.",
     metric:"time",  lowerBetter:true }
 ];
 
