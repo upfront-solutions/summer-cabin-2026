@@ -117,11 +117,11 @@ section.screen.on{display:block;animation:fade .32s ease}
 }
 #tabbar .inner{
   max-width:520px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(5,1fr);
+  display:grid;grid-template-columns:repeat(6,1fr);
 }
 .tab{
-  padding:11px 2px 10px;text-align:center;
-  font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:11px 1px 10px;text-align:center;
+  font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);position:relative;transition:color .2s;
 }
 .tab .ic{display:block;font-size:16px;line-height:1;margin-bottom:5px;opacity:.5;transition:opacity .2s}
@@ -487,6 +487,55 @@ details.gm .body{padding-bottom:12px}
 .undo.confirm{background:var(--clay);border-color:var(--clay);color:#FFF8F0}
 
 /* ============================================================
+   DIVISIONS + BETS
+   ============================================================ */
+.seg3{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--hair);border-radius:2px;margin-bottom:22px;overflow:hidden}
+.seg3 button{padding:11px 4px;font-size:13px;font-weight:500;color:var(--mid);background:var(--paper2);transition:.16s}
+.seg3 button+button{border-left:1px solid var(--hair)}
+.seg3 button.on{background:var(--espresso);color:var(--paper2)}
+
+.divtag{
+  display:inline-block;padding:3px 9px;border-radius:999px;font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--hair2);color:var(--mid);
+}
+.divtag.kids{border-color:var(--olive);color:var(--olive)}
+
+.tab{position:relative}
+.badge{
+  position:absolute;top:5px;right:calc(50% - 20px);
+  min-width:16px;height:16px;padding:0 4px;border-radius:99px;
+  background:var(--clay);color:#FFF8F0;font-size:9.5px;font-weight:700;
+  display:none;place-items:center;letter-spacing:0;line-height:16px;text-align:center;
+}
+.badge.on{display:grid}
+
+.bet{border-top:1px solid var(--hair);padding:16px 0}
+.bet:last-of-type{border-bottom:1px solid var(--hair)}
+.bet .bhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:7px}
+.bet .who{font-size:15px;font-weight:500;color:var(--espresso)}
+.bet .amt{font-family:var(--serif);font-size:22px;color:var(--espresso);white-space:nowrap}
+.bet .terms{font-size:14px;color:var(--mid);line-height:1.5;margin-bottom:10px}
+.bet .meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.bet .acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.bet .acts button{
+  flex:1;min-width:110px;padding:11px 12px;border-radius:2px;font-size:13px;font-weight:500;
+  border:1px solid var(--hair2);color:var(--espresso);background:var(--paper2);
+}
+.bet .acts button.go{background:var(--espresso);color:var(--paper2);border-color:var(--espresso)}
+.bet .acts button.warn{color:var(--clay);border-color:var(--clay)}
+.bet.won{border-left:2px solid var(--olive);padding-left:13px}
+.bet.lost{border-left:2px solid var(--clay);padding-left:13px}
+
+.ledger{border-top:1px solid var(--hair);margin-top:8px}
+.lrow{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.lrow .n{flex:1;min-width:0;font-size:15px;color:var(--espresso)}
+.lrow .v{font-family:var(--serif);font-size:19px;white-space:nowrap}
+.lrow .v.up{color:var(--olive)} .lrow .v.down{color:var(--clay)}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px 0 4px}
+.total b{font-family:var(--serif);font-size:32px;font-weight:400}
+.total b.up{color:var(--olive)} .total b.down{color:var(--clay)}
+
+/* ============================================================
    SHEET / TOAST
    ============================================================ */
 #scrim{position:fixed;inset:0;background:rgba(40,28,20,.42);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:.24s}
@@ -664,21 +713,21 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
         <div class="wbody" style="padding-left:0">
 
           <div class="medaltable">
-            <div class="medal g"><div class="pts">10 pts</div><div class="lbl">1st Place</div></div>
-            <div class="medal s"><div class="pts">5 pts</div><div class="lbl">2nd Place</div></div>
-            <div class="medal b"><div class="pts">3 pts</div><div class="lbl">3rd Place</div></div>
+            <div class="medal g"><div class="pts">10</div><div class="lbl">First</div></div>
+            <div class="medal s"><div class="pts">5</div><div class="lbl">Second</div></div>
+            <div class="medal b"><div class="pts">3</div><div class="lbl">Third</div></div>
           </div>
-          <p class="xs faint" style="margin-top:11px">Fourth place and below score zero.</p>
+          <p class="xs faint" style="margin-top:11px">Top three in each event. Fourth and below score nothing.</p>
 
           <div class="flow">
-            <div class="step"><span class="n">01</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg></div><b>Complete a challenge</b></div>
-            <div class="step"><span class="n">02</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg></div><b>Do it with a witness</b></div>
-            <div class="step"><span class="n">03</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div><b>Log witness and score in Points</b></div>
+            <div class="step"><span class="n">01</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg></div><b>Do the event</b></div>
+            <div class="step"><span class="n">02</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg></div><b>With a witness</b></div>
+            <div class="step"><span class="n">03</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div><b>Log it in Points</b></div>
           </div>
 
           <div class="facts">
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-repeat"/></svg>
-              <div><b>Only your best counts</b><span>Try and log as many as you'd like. Best score is taken.</span></div></div>
+              <div><b>Only your best counts</b><span>Try as many times as you like. A bad run never hurts you.</span></div></div>
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg>
               <div><b>Witnesses are public</b><span>Their name sits next to your score on the leaderboard. That is the whole anti-cheat system.</span></div></div>
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-equal"/></svg>
@@ -700,12 +749,17 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
             <div class="fact"><svg class="ic" viewBox="0 0 24 24"><use href="#i-plus"/></svg>
               <div><b>1 point each, no limit</b><span>Anyone can give you one, as many times as you earn it, all weekend.</span></div></div>
             <div class="fact no"><svg class="ic" viewBox="0 0 24 24"><use href="#i-ban"/></svg>
-              <div><b>You cannot give yourself points.</b><span>Your own name is not on your list - no cheating!</span></div></div>
+              <div><b>You cannot tip yourself</b><span>Your own name is not even in the list. Don't cheat.</span></div></div>
           </div>
         </div>
       </div>
 
-      <div class="shead" style="margin-top:36px"><h2 class="d2">The four challenges</h2><span class="faint xs">10 &middot; 5 &middot; 3</span></div>
+      <div class="shead" style="margin-top:36px"><h2 class="d2">The challenges</h2><span class="faint xs">10 &middot; 5 &middot; 3</span></div>
+      <div class="seg" id="gameseg">
+        <button data-d="adults" class="on">Adults</button>
+        <button data-d="kids">Kids</button>
+      </div>
+      <p class="xs faint" style="margin:-10px 0 20px" id="gamesegnote"></p>
       <div id="gamelist"></div>
       <button class="btn" onclick="go('points')">Log a score</button>
     </section>
@@ -721,11 +775,21 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
     <section class="screen pad-top" id="s-board">
       <span class="eyebrow">Live standings</span>
       <h1 class="d1" style="margin:10px 0 22px">Leader<span class="it">board</span></h1>
+      <div class="seg" id="boardseg">
+        <button data-d="adults" class="on">Adults</button>
+        <button data-d="kids">Kids</button>
+      </div>
       <div class="boardbar">
         <span class="xs faint" id="lastsync"></span>
         <button class="rfsh" id="refreshbtn"><svg class="ic" viewBox="0 0 24 24"><use href="#i-repeat"/></svg>Refresh</button>
       </div>
       <div id="boardbody"></div>
+    </section>
+    <!-- ==================== BETS ==================== -->
+    <section class="screen pad-top" id="s-bets">
+      <span class="eyebrow" id="betsub">Side wagers</span>
+      <h1 class="d1" style="margin:10px 0 22px">The <span class="it">Book</span></h1>
+      <div id="betsbody"></div>
     </section>
   </main>
 
@@ -736,6 +800,7 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
       <button class="tab" data-t="games"><span class="ic">◈</span>Games</button>
       <button class="tab" data-t="points"><span class="ic">＋</span>Points</button>
       <button class="tab" data-t="board"><span class="ic">▲</span>Board</button>
+      <button class="tab" data-t="bets"><span class="ic">◎</span>Bets<span class="badge" id="betbadge"></span></button>
     </div>
   </nav>
 </div>
@@ -763,32 +828,54 @@ const SUPABASE_KEY = "sb_publishable_ofWoZWhPti37cd21Vm-Dtg_cqPSfUpt";
 const START = new Date("2026-09-25T16:00:00-07:00");
 const ADDRESS = "84464 Calle Larriva, Coachella, CA 92236";
 
-const ATTENDEES = ["Anh","Anthony","Cindy","Dan","Hai","Jeannie","Jenzo","Kathy",
-                   "Kimberly","Kurt","Leo","Lizzie","Mihai","Mike","Richard",
-                   "Stephan","Thy-An","Trung"].sort((a,b)=>a.localeCompare(b));
+const ADULTS = ["Alvin","Anh","Anthony","Cindy","Dan","Hai","Jeannie","Jenzo","Kathy",
+                "Kimberly","Kurt","Leo","Lizzie","Mihai","Mike","Richard","Stephan",
+                "Thy-An","Trung","Viv"].sort((a,b)=>a.localeCompare(b));
 
+const KIDS   = ["Eli","Emma","Hailey","Kyrie","Mila","Shay"].sort((a,b)=>a.localeCompare(b));
+
+const EVERYONE = [...ADULTS, ...KIDS];
+const divOf   = n => KIDS.includes(n) ? "kids" : "adults";
+const rosterOf= d => d==="kids" ? KIDS : ADULTS;
+const DIV_NAME= { adults:"Adults", kids:"Kids" };
+
+// Kid events are deliberately easier. Same scoring, separate ids so nothing ever mixes.
 const GAMES = [
-  { id:"pool",     name:"Pool Lap Sprint",   img:"photos/game-pool.jpg",
+  { id:"pool",       div:"adults", name:"Pool Lap Sprint", img:"photos/game-pool.jpg",
     rule:"One full lap. Push off at the bar, touch the jacuzzi, come back. Fastest time wins.",
     metric:"time",  lowerBetter:true },
-  { id:"pacman",   name:"Pac-Man",           img:"photos/game-pacman.jpg",
-    rule:"Play until you run out of lives, and whatever you finish on is your score.",
+  { id:"pacman",     div:"adults", name:"Pac-Man", img:"photos/game-pacman.jpg",
+    rule:"One game each. Play until you run out of lives, and whatever you finish on is your score. No restarting halfway because it is going badly.",
     metric:"score", lowerBetter:false },
-  { id:"foosball", name:"Foosball Ten",      img:"photos/game-foosball.jpg",
-    rule:"Score 10 goals as fast as you can, with the goalie in the center of the goal.",
+  { id:"foosball",   div:"adults", name:"Foosball Ten", img:"photos/game-foosball.jpg",
+    rule:"Score 10 goals as fast as you can, with the goalie still parked in the middle. Fastest time wins.",
     metric:"time",  lowerBetter:true },
-  { id:"hoops",    name:"Pool Hoops",        img:"photos/pool-hoop.jpg",
-    rule:"Make 5 baskets from the 3rd bar chair from the hoop. Fastest time wins.",
+  { id:"hoops",      div:"adults", name:"Pool Hoops", img:"photos/pool-hoop.jpg",
+    rule:"Make 5 baskets from the 3rd ball chair. Clock stops on the 5th. Fastest time wins.",
+    metric:"time",  lowerBetter:true },
+
+  { id:"k-pool",     div:"kids",   name:"Sideways Lap", img:"photos/game-pool.jpg",
+    rule:"One lap across the pool the short way, side to side instead of bar to jacuzzi. Touch the far wall and come back.",
+    metric:"time",  lowerBetter:true },
+  { id:"k-pacman",   div:"kids",   name:"Pac-Man", img:"photos/game-pacman.jpg",
+    rule:"Exactly the same game the grown-ups play. Play until you run out of lives. Highest score wins.",
+    metric:"score", lowerBetter:false },
+  { id:"k-foosball", div:"kids",   name:"First Goal", img:"photos/game-foosball.jpg",
+    rule:"Score one goal as fast as you can, with the goalie parked in the middle.",
+    metric:"time",  lowerBetter:true },
+  { id:"k-hoops",    div:"kids",   name:"One Basket", img:"photos/pool-hoop.jpg",
+    rule:"Make one basket from the first bar chair. Clock stops the moment it drops.",
     metric:"time",  lowerBetter:true }
 ];
+const gamesFor = d => GAMES.filter(g=>g.div===d);
 
 const MEALS = [
   { day:"Friday, Sept 25",   when:"Dinner",    title:"Seafood Pan Roast", img:"photos/food-panroast.jpg",
     dishes:[["Seafood pan roast",""],["Sausages","on the side"]] },
-  { day:"Saturday, Sept 26", when:"Breakfast", title:"Soup Măng Cua",     img:"photos/food-soup.jpg",
+  { day:"Saturday, Sept 26", when:"Breakfast", title:"Soup M\u0103ng Cua",     img:"photos/food-soup.jpg",
     dishes:[["Crab and asparagus soup","the cure for Friday night"]] },
-  { day:"Saturday, Sept 26", when:"Lunch",     title:"Bò Né",             img:"photos/food-bone.jpg",
-    dishes:[["Bò né","sizzling beef and egg"],["Mushroom version","veggie friendly"]] },
+  { day:"Saturday, Sept 26", when:"Lunch",     title:"B\u00f2 N\u00e9",             img:"photos/food-bone.jpg",
+    dishes:[["B\u00f2 n\u00e9","sizzling beef and egg"],["Mushroom version","veggie friendly"]] },
   { day:"Saturday, Sept 26", when:"Dinner",    title:"American BBQ",      img:"photos/food-bbq.jpg",
     dishes:[["Beef ribs",""],["Pork ribs",""],["Lemon pepper salmon",""],["Slaw",""]] },
   { day:"Friday to Sunday",  when:"Anytime",   title:"Snacks and Sips",   img:"photos/food-snacks.jpg",
@@ -806,6 +893,7 @@ const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const DB = {
   scores: [],   // {game, player, value, witness, ts}
   social: [],   // {giver, receiver, ts}
+  bets:   [],   // {id, proposer, opponent, amount, terms, status, winner, settled_by}
   ok: true,     // false when the database cannot be reached or the tables are missing
 
   async load(){
@@ -813,13 +901,16 @@ const DB = {
       try{
         this.scores = JSON.parse(localStorage.getItem("og_scores") || "[]");
         this.social = JSON.parse(localStorage.getItem("og_social") || "[]");
-      }catch(e){ this.scores=[]; this.social=[]; }
+        this.bets   = JSON.parse(localStorage.getItem("og_bets")   || "[]");
+      }catch(e){ this.scores=[]; this.social=[]; this.bets=[]; }
       return;
     }
-    const [s,o] = await Promise.all([ api("scores"), api("social") ]);
+    const [s,o,b] = await Promise.all([ api("scores"), api("social"), api("bets") ]);
     this.ok = Array.isArray(s) && Array.isArray(o);
     if(s) this.scores = s.map(r=>({id:r.id,game:r.game,player:r.player,value:+r.value,witness:r.witness,ts:r.created_at}));
     if(o) this.social = o.map(r=>({id:r.id,giver:r.giver,receiver:r.receiver,ts:r.created_at}));
+    if(b) this.bets   = b.map(r=>({id:r.id,proposer:r.proposer,opponent:r.opponent,amount:+r.amount,
+                                   terms:r.terms,status:r.status,winner:r.winner,settled_by:r.settled_by,ts:r.created_at}));
   },
 
   async addScore(rec){
@@ -859,6 +950,32 @@ const DB = {
     return !!(res && res[0]);
   },
 
+  async addBet(rec){
+    rec.status = "pending"; rec.winner = null; rec.settled_by = null;
+    if(!CLOUD){
+      rec.id = localId(); this.bets.push(rec);
+      localStorage.setItem("og_bets", JSON.stringify(this.bets));
+      return true;
+    }
+    const res = await api("bets","POST",{proposer:rec.proposer,opponent:rec.opponent,
+                                         amount:rec.amount,terms:rec.terms,status:"pending"});
+    rec.id = (res && res[0] && res[0].id) || localId();
+    this.bets.push(rec);
+    return !!(res && res[0]);
+  },
+
+  // accept / decline / settle. Reverts itself if the server says no.
+  async updateBet(id, patch){
+    const b = this.bets.find(x=>String(x.id)===String(id));
+    if(!b) return false;
+    const before = {...b};
+    Object.assign(b, patch);
+    if(!CLOUD){ localStorage.setItem("og_bets", JSON.stringify(this.bets)); return true; }
+    const ok = await api("bets","PATCH",patch,"?id=eq."+encodeURIComponent(id));
+    if(!ok){ Object.assign(b, before); return false; }
+    return true;
+  },
+
   // take back a point you gave. Reverts itself if the server says no.
   async deleteSocial(id){
     const i = this.social.findIndex(s=>String(s.id)===String(id));
@@ -891,7 +1008,7 @@ async function api(table, method="GET", body, query){
       body: body ? JSON.stringify(body) : undefined
     });
     if(!r.ok) return null;
-    if(method==="DELETE") return true;
+    if(method==="DELETE" || method==="PATCH") return true;
     const txt = await r.text();
     return txt ? JSON.parse(txt) : true;
   }catch(e){ return null; }
@@ -922,22 +1039,49 @@ function rankGame(game){
   });
 }
 
-function standings(){
+// One division at a time. Adults and kids never share a leaderboard.
+function standings(div="adults"){
   const t = {};
-  ATTENDEES.forEach(n=> t[n] = { name:n, medals:0, social:0, total:0, golds:0, breakdown:{} });
-  GAMES.forEach(g=>{
+  rosterOf(div).forEach(n=> t[n] = { name:n, div, medals:0, social:0, total:0, golds:0, breakdown:{} });
+  gamesFor(div).forEach(g=>{
     rankGame(g.id).forEach(r=>{
-      if(!t[r.player]) return;
+      if(!t[r.player]) return;                      // a kid's score can never land on the adult board
       t[r.player].medals += r.award;
       t[r.player].breakdown[g.id] = r.place;
       if(r.place===1) t[r.player].golds++;
     });
   });
+  // social points cross divisions freely: anyone may thank anyone
   DB.social.forEach(s=>{ if(t[s.receiver]) t[s.receiver].social += SOCIAL_POINT; });
   Object.values(t).forEach(p=> p.total = p.medals + p.social);
   return Object.values(t).sort((a,b)=>
     b.total - a.total || b.golds - a.golds || b.medals - a.medals || a.name.localeCompare(b.name)
   );
+}
+
+/* ---- bets: peer to peer, the site is only a ledger ---- */
+const betsFor      = n => DB.bets.filter(b=> b.proposer===n || b.opponent===n);
+const pendingForMe = n => DB.bets.filter(b=> b.opponent===n && b.status==="pending");
+
+// net position per person: positive means they are owed money
+function ledger(){
+  const net = {};
+  DB.bets.filter(b=>b.status==="settled" && b.winner).forEach(b=>{
+    const loser = b.winner===b.proposer ? b.opponent : b.proposer;
+    net[b.winner] = (net[b.winner]||0) + Number(b.amount);
+    net[loser]    = (net[loser]||0)    - Number(b.amount);
+  });
+  return net;
+}
+
+// who owes whom, netted off between each pair
+function settlements(me){
+  const pairs = {};
+  DB.bets.filter(b=>b.status==="settled" && b.winner && (b.proposer===me||b.opponent===me)).forEach(b=>{
+    const other = b.proposer===me ? b.opponent : b.proposer;
+    pairs[other] = (pairs[other]||0) + (b.winner===me ? Number(b.amount) : -Number(b.amount));
+  });
+  return Object.entries(pairs).filter(([,v])=>v!==0).sort((a,b)=>b[1]-a[1]);
 }
 
 /* ==================================================================
@@ -972,14 +1116,18 @@ function go(tab){
   window.scrollTo({top:0,behavior:"instant"});
   if(tab==="points") renderPoints();
   if(tab==="board")  renderBoard();
+  if(tab==="bets")   renderBets();
 }
 document.querySelectorAll(".tab").forEach(b=> b.onclick = ()=> go(b.dataset.t));
 
 /* ==================================================================
    6. STATIC RENDERS
    ================================================================== */
-$("#rostercount").textContent = ATTENDEES.length;
-$("#roster").innerHTML = ATTENDEES.map(n=>`<span class="chip">${esc(n)}</span>`).join("");
+$("#rostercount").textContent = EVERYONE.length;
+$("#roster").innerHTML =
+  ADULTS.map(n=>`<span class="chip">${esc(n)}</span>`).join("") +
+  `<span class="chip" style="border-color:var(--olive);color:var(--olive)">Kids</span>` +
+  KIDS.map(n=>`<span class="chip" style="border-style:dashed">${esc(n)}</span>`).join("");
 
 /* menu */
 $("#menulist").innerHTML = MEALS.map(m=>`
@@ -993,17 +1141,39 @@ $("#menulist").innerHTML = MEALS.map(m=>`
     </div>
   </div>`).join("");
 
-/* games */
-$("#gamelist").innerHTML = GAMES.map((g,i)=>`
-  <div class="gamecard">
-    <div class="ghead"><h3>${esc(g.name)}</h3><span class="no">${String(i+1).padStart(2,"0")}</span></div>
-    <figure><img src="${g.img}" alt="${esc(g.name)}" loading="lazy"></figure>
-    <p class="gdesc">${esc(g.rule)}</p>
-    <div class="foot">
-      <span class="metricpill ${g.metric}">${g.metric==="time" ? "Fastest time wins" : "Highest score wins"}</span>
-      <span class="xs faint">10 · 5 · 3</span>
-    </div>
-  </div>`).join("");
+/* games, per division */
+let gamesDiv = "adults";
+function renderGames(){
+  $("#gamesegnote").textContent = gamesDiv==="kids"
+    ? "Same scoring, shorter challenges. The kids have their own leaderboard."
+    : "Four events, plus social points for being a decent human.";
+
+  $("#gamelist").innerHTML = gamesFor(gamesDiv).map((g,i)=>`
+    <div class="gamecard">
+      <div class="ghead"><h3>${esc(g.name)}</h3><span class="no">${String(i+1).padStart(2,"0")}</span></div>
+      <figure><img src="${g.img}" alt="${esc(g.name)}" loading="lazy"></figure>
+      <p class="gdesc">${esc(g.rule)}</p>
+      <div class="foot">
+        <span class="metricpill ${g.metric}">${g.metric==="time" ? "Fastest time wins" : "Highest score wins"}</span>
+        <span class="xs faint">10 &middot; 5 &middot; 3</span>
+      </div>
+    </div>`).join("") + (gamesDiv==="adults" ? `
+    <div class="gamecard">
+      <div class="ghead"><h3>Social Points</h3><span class="no">05</span></div>
+      <figure><img src="photos/patio-bar.jpg" alt="The patio bar" loading="lazy"></figure>
+      <p class="gdesc">Not a game. A running tally of goodwill, and it works across both divisions: grown-ups and kids can give each other points. One point, every time, as many times as they earn it.</p>
+      <div class="foot">
+        <span class="metricpill social">1 point each &middot; unlimited</span>
+        <span class="xs faint">You can't tip yourself</span>
+      </div>
+    </div>` : "");
+}
+renderGames();
+document.querySelectorAll("#gameseg button").forEach(b=> b.onclick = ()=>{
+  gamesDiv = b.dataset.d;
+  document.querySelectorAll("#gameseg button").forEach(x=>x.classList.toggle("on", x===b));
+  renderGames();
+});
 
 /* countdown */
 function tickCD(){
@@ -1032,6 +1202,14 @@ function stampBadge(){
 }
 stampBadge();
 
+/* red count on the Bets tab when somebody is waiting on you */
+function stampBets(){
+  const el = $("#betbadge"); if(!el) return;
+  const n = me ? pendingForMe(me).length : 0;
+  el.textContent = n;
+  el.classList.toggle("on", n>0);
+}
+
 /* ==================================================================
    7. POINTS SCREEN
    ================================================================== */
@@ -1043,16 +1221,21 @@ function renderPoints(){
   if(!me){
     $("#pointsub").textContent = "First things first: who are you?";
     body.innerHTML = `<p class="lead" style="margin-bottom:20px">Tap your name. We'll remember it on this phone so you only do this once.</p>
-      <div class="namegrid">${ATTENDEES.map(n=>`<button class="namebtn" data-n="${esc(n)}">${esc(n)}</button>`).join("")}</div>`;
+      <p class="eyebrow" style="margin-bottom:10px">Grown-ups</p>
+      <div class="namegrid">${ADULTS.map(n=>`<button class="namebtn" data-n="${esc(n)}">${esc(n)}</button>`).join("")}</div>
+      <p class="eyebrow" style="margin:22px 0 10px">Kids</p>
+      <div class="namegrid">${KIDS.map(n=>`<button class="namebtn" data-n="${esc(n)}" style="border-color:var(--olive);color:var(--olive)">${esc(n)}</button>`).join("")}</div>`;
     body.querySelectorAll(".namebtn").forEach(b=> b.onclick = ()=>{
       me = b.dataset.n; localStorage.setItem("og_me", me);
-      toast("Welcome, " + me); renderPoints();
+      boardDiv = divOf(me);
+      toast("Welcome, " + me); renderPoints(); stampBets();
     });
     return;
   }
 
-  $("#pointsub").textContent = "Score entry";
-  const mine = standings().find(p=>p.name===me) || {total:0,medals:0,social:0};
+  const div  = divOf(me);
+  $("#pointsub").textContent = div==="kids" ? "Kids division" : "Score entry";
+  const mine = standings(div).find(p=>p.name===me) || {total:0,medals:0,social:0};
 
   body.innerHTML = `
     <div class="mebar">
@@ -1061,6 +1244,7 @@ function renderPoints(){
         <b>${esc(me)}</b>
         <div class="xs faint">${mine.total} points · ${mine.medals} from events · ${mine.social} social</div>
       </div>
+      <span class="divtag ${div}">${DIV_NAME[div]}</span>
       <button class="switch" id="switchme">Not you?</button>
     </div>
 
@@ -1071,14 +1255,14 @@ function renderPoints(){
 
     <div id="segbody"></div>`;
 
-  $("#switchme").onclick = ()=>{ localStorage.removeItem("og_me"); me = null; renderPoints(); };
+  $("#switchme").onclick = ()=>{ localStorage.removeItem("og_me"); me = null; renderPoints(); stampBets(); };
   body.querySelectorAll(".seg button").forEach(b=> b.onclick = ()=>{ pointsTab = b.dataset.p; renderPoints(); });
 
   pointsTab === "score" ? renderScoreTab() : renderSocialTab();
 }
 
 function renderScoreTab(){
-  $("#segbody").innerHTML = GAMES.map(g=>{
+  $("#segbody").innerHTML = gamesFor(divOf(me)).map(g=>{
     const my = bestPerPlayer(g.id).find(r=>r.player===me);
     return `<div class="grow">
       <figure><img src="${g.img}" alt="" loading="lazy"></figure>
@@ -1112,7 +1296,7 @@ function openScoreSheet(gid){
 
     <label class="fl">Who witnessed it</label>
     <input class="fi" id="f-wit" type="text" placeholder="Their name" autocomplete="off" list="attlist">
-    <datalist id="attlist">${ATTENDEES.filter(n=>n!==me).map(n=>`<option value="${esc(n)}">`).join("")}</datalist>
+    <datalist id="attlist">${EVERYONE.filter(n=>n!==me).map(n=>`<option value="${esc(n)}">`).join("")}</datalist>
 
     <button class="btn" id="f-save" style="margin-top:26px">Save result</button>
     <button class="btn ghost" style="margin-top:9px" onclick="closeSheet()">Cancel</button>
@@ -1152,7 +1336,6 @@ function openScoreSheet(gid){
 function renderAttempts(gid){
   const box = $("#attempts");
   if(!box) return;
-  const g    = GAMES.find(x=>x.id===gid);
   const mine = DB.scores.filter(s=>s.game===gid && s.player===me);
   if(!mine.length){ box.innerHTML = ""; return; }
 
@@ -1189,20 +1372,24 @@ function renderSocialTab(){
   const mine = {}; DB.social.filter(s=>s.giver===me).forEach(s=> (mine[s.receiver] = mine[s.receiver] || []).push(s));
   const got  = {}; DB.social.forEach(s=> got[s.receiver] = (got[s.receiver]||0)+1);
 
+  const row = n => {
+    const given = (mine[n]||[]).length;
+    return `<div class="socrow">
+      <div class="avatar" style="width:34px;height:34px;font-size:13px">${esc(initials(n))}</div>
+      <div class="n">${esc(n)}
+        <small>${got[n]||0} social points${given ? " · you've given " + given : ""}</small>
+      </div>
+      ${given ? `<button class="undo" data-n="${esc(n)}">Undo</button>` : ""}
+      <button class="plus" data-n="${esc(n)}">+</button>
+    </div>`;
+  };
+
   $("#segbody").innerHTML = `
-    <div class="soclist">
-      ${ATTENDEES.filter(n=>n!==me).map(n=>{
-        const given = (mine[n]||[]).length;
-        return `<div class="socrow">
-          <div class="avatar" style="width:34px;height:34px;font-size:13px">${esc(initials(n))}</div>
-          <div class="n">${esc(n)}
-            <small>${got[n]||0} social points${given ? " · you've given " + given : ""}</small>
-          </div>
-          ${given ? `<button class="undo" data-n="${esc(n)}">Undo</button>` : ""}
-          <button class="plus" data-n="${esc(n)}">+</button>
-        </div>`;}).join("")}
-    </div>
-    <p class="xs faint" style="margin-top:14px">Tap the plus, then tap again to confirm. Gave one by mistake? Undo takes back the last point you gave that person. You can only undo your own, and you can't give yourself points, nice try.</p>`;
+    <p class="eyebrow" style="margin-bottom:8px">Grown-ups</p>
+    <div class="soclist">${ADULTS.filter(n=>n!==me).map(row).join("")}</div>
+    <p class="eyebrow" style="margin:22px 0 8px">Kids</p>
+    <div class="soclist">${KIDS.filter(n=>n!==me).map(row).join("")}</div>
+    <p class="xs faint" style="margin-top:14px">Anyone can thank anyone, across both divisions. Tap the plus, then tap again to confirm. Gave one by mistake? Undo takes back the last point you gave that person. You can only undo your own, and you can't give yourself points, nice try.</p>`;
 
   $("#segbody").querySelectorAll(".undo").forEach(btn=>{
     let armed=false, t;
@@ -1216,7 +1403,7 @@ function renderSocialTab(){
         return;
       }
       clearTimeout(t); btn.disabled = true;
-      const latest = list[list.length-1];              // the most recent one you gave them
+      const latest = list[list.length-1];
       const ok = await DB.deleteSocial(latest.id);
       toast(ok ? "Took back 1 point from " + btn.dataset.n : "Could not undo, check your connection");
       renderPoints();
@@ -1256,14 +1443,17 @@ const SOLO_NOTICE = `<div class="notice">
   <span>Nobody else can see them, and you cannot see theirs. To put everyone on one shared leaderboard, follow SETUP.md. It is free and takes about ten minutes, and no scores are lost when you switch.</span>
 </div>`;
 
+let boardDiv = "adults";
+
 function renderBoard(){
-  const S = standings();
+  const S = standings(boardDiv);
   const anyone = S.some(p=>p.total>0);
   const body = $("#boardbody");
+  const notice = CLOUD ? (DB.ok ? "" : BROKEN_NOTICE) : SOLO_NOTICE;
 
   if(!anyone){
-    body.innerHTML = (CLOUD ? (DB.ok ? "" : BROKEN_NOTICE) : SOLO_NOTICE) + `<div class="empty">
-      <p class="d3">No points on the board yet.</p>
+    body.innerHTML = notice + `<div class="empty">
+      <p class="d3">No points on the ${boardDiv==="kids"?"kids ":""}board yet.</p>
       <p class="sm mid" style="margin-top:10px">Somebody has to go first.</p>
       <button class="btn" style="margin-top:22px" onclick="go('points')">Log the first score</button></div>`;
     return;
@@ -1285,7 +1475,7 @@ function renderBoard(){
       <div class="pt">${r.total}</div>
     </div>`).join("");
 
-  const breakdown = GAMES.map(g=>{
+  const breakdown = gamesFor(boardDiv).map(g=>{
     const rows = rankGame(g.id);
     return `<details class="gm">
       <summary>${esc(g.name)}<span class="arw">›</span></summary>
@@ -1304,13 +1494,180 @@ function renderBoard(){
 
   const socialTop = [...S].sort((a,b)=>b.social-a.social).filter(x=>x.social>0).slice(0,5);
 
-  body.innerHTML = (CLOUD ? (DB.ok ? "" : BROKEN_NOTICE) : SOLO_NOTICE) + podium
-    + `<div class="shead"><h2 class="d2">Full standings</h2><span class="faint xs">${S.length} players</span></div>` + table
+  body.innerHTML = notice + podium
+    + `<div class="shead"><h2 class="d2">Full standings</h2><span class="faint xs">${DIV_NAME[boardDiv]} · ${S.length}</span></div>` + table
     + `<div class="shead"><h2 class="d2">Event by event</h2></div>` + breakdown
     + (socialTop.length ? `<div class="shead"><h2 class="d2">Nicest people</h2><span class="faint xs">Social points</span></div>
         ${socialTop.map((r,i)=>`<div class="rr" ${i?"":'style="border-top:0"'}><div class="p">${i+1}</div>
           <div class="n">${esc(r.name)}</div><div class="v" style="color:var(--clay)">${r.social}</div></div>`).join("")}` : "")
     + `<p class="xs faint" style="margin-top:24px;text-align:center">Ties share the higher place. Only best attempts count.</p>`;
+}
+
+document.querySelectorAll("#boardseg button").forEach(b=> b.onclick = ()=>{
+  boardDiv = b.dataset.d;
+  document.querySelectorAll("#boardseg button").forEach(x=>x.classList.toggle("on", x===b));
+  renderBoard();
+});
+
+/* ==================================================================
+   8b. BETS  ·  peer to peer. The site is a ledger, no money moves through it.
+   ================================================================== */
+const money = n => "$" + Number(n).toFixed(Number(n)%1 ? 2 : 0);
+
+function renderBets(){
+  const body = $("#betsbody");
+
+  if(!me){
+    $("#betsub").textContent = "Side wagers";
+    body.innerHTML = `<p class="lead" style="margin-bottom:20px">Tap your name over in Points first, then come back and we'll show you your book.</p>
+      <button class="btn" onclick="go('points')">Pick your name</button>`;
+    return;
+  }
+  if(divOf(me)==="kids"){
+    $("#betsub").textContent = "Grown-ups only";
+    body.innerHTML = `<div class="empty">
+      <p class="d3">Betting is for the grown-ups.</p>
+      <p class="sm mid" style="margin-top:10px">You've got four events and a leaderboard of your own. Go and win it.</p>
+      <button class="btn" style="margin-top:22px" onclick="go('board')">See the kids board</button></div>`;
+    return;
+  }
+
+  $("#betsub").textContent = "Side wagers";
+  const pending  = pendingForMe(me);
+  const proposed = DB.bets.filter(b=>b.proposer===me && b.status==="pending");
+  const active   = betsFor(me).filter(b=>b.status==="accepted");
+  const done     = betsFor(me).filter(b=>b.status==="settled");
+  const declined = betsFor(me).filter(b=>b.status==="declined");
+  const owed     = settlements(me);
+  const net      = owed.reduce((a,[,v])=>a+v,0);
+
+  const card = (b, extra="") => {
+    const other = b.proposer===me ? b.opponent : b.proposer;
+    const iWon  = b.winner===me;
+    const cls   = b.status==="settled" ? (iWon ? "won" : "lost") : "";
+    return `<div class="bet ${cls}">
+      <div class="bhead"><span class="who">vs ${esc(other)}</span><span class="amt">${money(b.amount)}</span></div>
+      <p class="terms">${esc(b.terms)}</p>
+      <div class="meta">${
+        b.status==="pending"  ? (b.proposer===me ? "Waiting on " + esc(other) : esc(other) + " wants action") :
+        b.status==="accepted" ? "On. Nobody has called it yet" :
+        b.status==="declined" ? "Declined" :
+        (iWon ? "You won · " : "You lost · ") + (b.settled_by ? "called by " + esc(b.settled_by) : "settled")
+      }</div>
+      ${extra}
+    </div>`;
+  };
+
+  let html = "";
+
+  if(pending.length){
+    html += `<div class="shead" style="margin-top:0"><h2 class="d2">Waiting on you</h2><span class="faint xs">${pending.length}</span></div>`
+      + pending.map(b=>card(b, `<div class="acts">
+          <button class="go" data-accept="${esc(b.id)}">Accept</button>
+          <button data-decline="${esc(b.id)}">Decline</button></div>`)).join("");
+  }
+
+  html += `<div class="shead" ${pending.length?"":'style="margin-top:0"'}><h2 class="d2">New bet</h2></div>
+    <button class="btn" id="newbet">Propose a wager</button>
+    <p class="xs faint" style="margin-top:10px">The site just keeps score. No money moves through it, so settle up in person.</p>`;
+
+  if(active.length){
+    html += `<div class="shead"><h2 class="d2">Live bets</h2><span class="faint xs">${active.length}</span></div>`
+      + active.map(b=>{
+          const other = b.proposer===me ? b.opponent : b.proposer;
+          return card(b, `<div class="acts">
+            <button class="go" data-win="${esc(b.id)}|${esc(me)}">I won</button>
+            <button data-win="${esc(b.id)}|${esc(other)}">${esc(other)} won</button></div>`);
+        }).join("");
+  }
+
+  if(proposed.length){
+    html += `<div class="shead"><h2 class="d2">Sent, not answered</h2></div>`
+      + proposed.map(b=>card(b, `<div class="acts">
+          <button class="warn" data-cancel="${esc(b.id)}">Withdraw</button></div>`)).join("");
+  }
+
+  if(done.length){
+    html += `<div class="shead"><h2 class="d2">Settled</h2><span class="faint xs">${done.length}</span></div>`
+      + done.map(b=>card(b, `<div class="acts"><button data-reopen="${esc(b.id)}">Called it wrong, reopen</button></div>`)).join("");
+
+    html += `<div class="total"><span class="sm mid">Where you stand</span>
+      <b class="${net>=0?"up":"down"}">${net>=0?"+":"-"}${money(Math.abs(net))}</b></div>
+      <div class="ledger">${owed.map(([n,v])=>`
+        <div class="lrow"><div class="n">${v>0?esc(n)+" owes you":"You owe "+esc(n)}</div>
+        <div class="v ${v>0?"up":"down"}">${money(Math.abs(v))}</div></div>`).join("")}</div>
+      <p class="xs faint" style="margin-top:12px">Netted off per person, so two bets against Dan cancel out into one number.</p>`;
+  }
+
+  if(declined.length){
+    html += `<div class="shead"><h2 class="d2">Declined</h2></div>` + declined.map(b=>card(b)).join("");
+  }
+
+  body.innerHTML = html;
+
+  $("#newbet").onclick = openBetSheet;
+
+  const act = async (sel, fn, msg) => body.querySelectorAll(`[${sel}]`).forEach(btn=>{
+    btn.onclick = async ()=>{
+      btn.disabled = true;
+      const ok = await fn(btn.getAttribute(sel));
+      toast(ok ? msg(btn.getAttribute(sel)) : "Could not save, check your connection");
+      renderBets(); stampBets();
+    };
+  });
+
+  act("data-accept",  id=>DB.updateBet(id,{status:"accepted"}),                    ()=>"Bet is on");
+  act("data-decline", id=>DB.updateBet(id,{status:"declined"}),                    ()=>"Declined");
+  act("data-cancel",  id=>DB.updateBet(id,{status:"declined"}),                    ()=>"Withdrawn");
+  act("data-reopen",  id=>DB.updateBet(id,{status:"accepted",winner:null,settled_by:null}), ()=>"Back to live");
+  act("data-win",     v =>{ const [id,w]=v.split("|"); return DB.updateBet(id,{status:"settled",winner:w,settled_by:me}); },
+                      v =>{ const w=v.split("|")[1]; return w===me ? "Logged as your win" : w + " takes it"; });
+}
+
+function openBetSheet(){
+  openSheet(`
+    <span class="eyebrow">Between the two of you</span>
+    <h2 class="d2" style="margin-top:9px">Propose a wager</h2>
+
+    <label class="fl">Against who</label>
+    <div class="namegrid" id="betwho">
+      ${ADULTS.filter(n=>n!==me).map(n=>`<button class="namebtn" data-n="${esc(n)}">${esc(n)}</button>`).join("")}
+    </div>
+
+    <label class="fl">Amount</label>
+    <input class="fi" id="b-amt" type="number" inputmode="decimal" min="0" step="1" placeholder="20">
+
+    <label class="fl">The bet, in your words</label>
+    <input class="fi" id="b-terms" type="text" placeholder="Leo can't beat my lap time" autocomplete="off">
+
+    <button class="btn" id="b-send" style="margin-top:26px">Send it</button>
+    <button class="btn ghost" style="margin-top:9px" onclick="closeSheet()">Cancel</button>
+    <p class="xs faint" style="text-align:center;margin-top:16px">They get to accept or decline. Nothing counts until they do.</p>
+  `);
+
+  let target = null;
+  $("#betwho").querySelectorAll(".namebtn").forEach(b=> b.onclick = ()=>{
+    target = b.dataset.n;
+    $("#betwho").querySelectorAll(".namebtn").forEach(x=>{
+      const on = x===b;
+      x.style.background = on ? "var(--espresso)" : "";
+      x.style.color      = on ? "var(--paper2)"   : "";
+    });
+  });
+
+  $("#b-send").onclick = async ()=>{
+    if(!target) return toast("Pick who you're betting against");
+    const amount = parseFloat($("#b-amt").value);
+    if(!(amount > 0)) return toast("How much?");
+    const terms = $("#b-terms").value.trim();
+    if(!terms) return toast("Say what the bet actually is");
+
+    $("#b-send").disabled = true;
+    const ok = await DB.addBet({ proposer:me, opponent:target, amount, terms, ts:new Date().toISOString() });
+    closeSheet();
+    toast(ok || !CLOUD ? "Sent to " + target : "Saved on this phone only, could not reach the server");
+    renderBets(); stampBets();
+  };
 }
 
 /* ==================================================================
@@ -1334,7 +1691,7 @@ $("#refreshbtn").onclick = async ()=>{
   await DB.load();
   await new Promise(r=>setTimeout(r,450));      // let the spin register as feedback
   lastSync = Date.now();
-  renderBoard(); stampSync(); stampBadge();
+  renderBoard(); stampSync(); stampBadge(); stampBets();
   b.classList.remove("spin");
   toast(CLOUD ? "Leaderboard up to date" : "Refreshed (solo mode, this phone only)");
 };
@@ -1345,14 +1702,17 @@ $("#refreshbtn").onclick = async ()=>{
 (async function boot(){
   await DB.load();
   lastSync = Date.now();
-  renderBoard(); stampSync(); stampBadge();
+  if(me) boardDiv = divOf(me);            // open on your own division
+  document.querySelectorAll("#boardseg button").forEach(x=>x.classList.toggle("on", x.dataset.d===boardDiv));
+  renderBoard(); stampSync(); stampBadge(); stampBets();
   if(CLOUD){
     setInterval(async ()=>{
       if($("#sheet").classList.contains("on")) return;   // don't yank the form out from under someone
       await DB.load();
-      lastSync = Date.now(); stampSync();
+      lastSync = Date.now(); stampSync(); stampBadge(); stampBets();
       if($("#s-board").classList.contains("on")) renderBoard();
       if($("#s-points").classList.contains("on")) renderPoints();
+      if($("#s-bets").classList.contains("on"))  renderBets();
     }, 8000);
   }
 })();
