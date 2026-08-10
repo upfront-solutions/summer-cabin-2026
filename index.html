@@ -702,7 +702,7 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
       <div class="ways2">
         <div class="wcard">
           <svg class="ic" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
-          <b>Challenges</b><span>Win at four events</span>
+          <b>Challenges</b><span>Four Physical Events</span>
         </div>
         <div class="wcard">
           <svg class="ic" viewBox="0 0 24 24"><use href="#i-heart"/></svg>
@@ -715,16 +715,16 @@ input.fi::placeholder{color:var(--faint);font-weight:300}
         <div class="wbody" style="padding-left:0">
 
           <div class="medaltable">
-            <div class="medal g"><div class="pts">10</div><div class="lbl">First</div></div>
-            <div class="medal s"><div class="pts">5</div><div class="lbl">Second</div></div>
-            <div class="medal b"><div class="pts">3</div><div class="lbl">Third</div></div>
+            <div class="medal g"><div class="pts">10 pts</div><div class="lbl">1st Place</div></div>
+            <div class="medal s"><div class="pts">5 pts</div><div class="lbl">2nd Place</div></div>
+            <div class="medal b"><div class="pts">3 pts</div><div class="lbl">3rd Place</div></div>
           </div>
-          <p class="xs faint" style="margin-top:11px">Top three in each event. Fourth and below score nothing.</p>
+          <p class="xs faint" style="margin-top:11px">Fourth and below score no points.</p>
 
           <div class="flow">
-            <div class="step"><span class="n">01</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg></div><b>Do the event</b></div>
-            <div class="step"><span class="n">02</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg></div><b>With a witness</b></div>
-            <div class="step"><span class="n">03</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div><b>Log it in Points</b></div>
+            <div class="step"><span class="n">01</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-target"/></svg></div><b>Complete a challenge</b></div>
+            <div class="step"><span class="n">02</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-eye"/></svg></div><b>Choose and log a witness</b></div>
+            <div class="step"><span class="n">03</span><div class="ico"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div><b>Log time or score</b></div>
           </div>
 
           <div class="facts">
@@ -847,13 +847,13 @@ const GAMES = [
     rule:"One full lap. Push off at the bar, touch the jacuzzi, come back. Fastest time wins.",
     metric:"time",  lowerBetter:true },
   { id:"pacman",     div:"adults", name:"Pac-Man", img:"photos/game-pacman.jpg",
-    rule:"One game each. Play until you run out of lives, and whatever you finish on is your score. No restarting halfway because it is going badly.",
+    rule:"Play until you run out of lives, and whatever you finish on is your score.",
     metric:"score", lowerBetter:false },
   { id:"foosball",   div:"adults", name:"Foosball Ten", img:"photos/game-foosball.jpg",
-    rule:"Score 10 goals as fast as you can, with the goalie still parked in the middle. Fastest time wins.",
+    rule:"Score 10 goals as fast as you can, with the goalie piece parked in the middle. Fastest time wins.",
     metric:"time",  lowerBetter:true },
   { id:"hoops",      div:"adults", name:"Pool Hoops", img:"photos/pool-hoop.jpg",
-    rule:"Make 5 baskets from the 3rd ball chair. Clock stops on the 5th. Fastest time wins.",
+    rule:"Make 5 baskets from the 3rd bar chair fro the hoop. Clock stops on the 5th. Fastest time wins.",
     metric:"time",  lowerBetter:true },
 
   { id:"k-pool",     div:"kids",   name:"Sideways Lap", img:"photos/game-pool.jpg",
@@ -1171,7 +1171,7 @@ function renderGames(){
     <div class="gamecard">
       <div class="ghead"><h3>Social Points</h3><span class="no">05</span></div>
       <figure><img src="photos/patio-bar.jpg" alt="The patio bar" loading="lazy"></figure>
-      <p class="gdesc">Not a game. A running tally of goodwill, and it works across both divisions: grown-ups and kids can give each other points. One point, every time, as many times as they earn it.</p>
+      <p class="gdesc">Be kind. :) Be nice to people and ask them to give you points for it. One point per action. Unlimited available.</p>
       <div class="foot">
         <span class="metricpill social">1 point each &middot; unlimited</span>
         <span class="xs faint">You can't tip yourself</span>
